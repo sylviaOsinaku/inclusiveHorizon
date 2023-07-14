@@ -80,7 +80,7 @@ function Register() {
         console.log("signin");
         // Proceed to set the display name
         //  setDisplayName(user, userName);
-        navigate("/equityHome");
+        navigate("/login");
         console.log(user);
         console.log("navigate to user Home");
         // ...

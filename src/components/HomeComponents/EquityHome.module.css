@@ -1,0 +1,14 @@
+.home-container h1 {
+  margin-bottom: 1em;
+  color: indigo;
+}
+
+.home-container p {
+  color: #7a0657;
+  line-height: 21.5px;
+  background-color: #F6FFA6;
+  padding: 1em;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  font-weight: 400;
+}

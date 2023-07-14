@@ -1,0 +1,20 @@
+.nav-container {
+  background-color: #E893CF;
+  color: #fff;
+  border-top: 2px solid lightgray;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: .5em 1em;
+}
+
+.nav-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+}
+
+.nav-wrapper a {
+  color: #fff;
+}

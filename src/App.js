@@ -1,25 +1,93 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Welcome from "./pages/Welcome/Welcome";
+import Login from "./UserReg/Login";
+import Register from "./UserReg/Register";
+import ProtectedRoute from "./pages/ProtectedRoute";
+import HomeRoot from "./pages/HomeRoot";
+import Quiz from "./components/tools/Quiz";
+import InclusiveChecker from "./components/tools/InclusiveChecker";
+import Home from "./pages/Homepage/Home";
+import Pledge from "./components/tools/Pledge";
+import RandomQuotes from "./components/tools/RandomQuotes";
+import Tips from "./components/tools/Tips";
 
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Welcome />,
+  },
+  {
+    path: "/login",
+    element: <Login />,
+  },
+  {
+    path: "/signup",
+    element: <Register />,
+  },
+  {
+    path: "equityHome",
+    element: (
+      <ProtectedRoute>
+        <HomeRoot />
+      </ProtectedRoute>
+    ),
+    children: [
+      {
+        path: "/equityHome",
+        element: (
+          <ProtectedRoute>
+            <Home />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "quiz",
+        element: (
+          <ProtectedRoute>
+            <Quiz />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "inLangChecker",
+        element: (
+          <ProtectedRoute>
+            {" "}
+            <InclusiveChecker />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "pledge",
+        element: (
+          <ProtectedRoute>
+            <Pledge />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "randomquotes",
+        element: (
+          <ProtectedRoute>
+            {" "}
+            <RandomQuotes />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "tipsnfacts",
+        element: (
+          <ProtectedRoute>
+            <Tips />
+          </ProtectedRoute>
+        ),
+      },
+    ],
+  },
+]);
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  return <RouterProvider router={router}></RouterProvider>;
 }
 
 export default App;

@@ -1,0 +1,59 @@
+.welcome-container {
+  background-image: url(../../assets/istockphoto-457074035-612x612.jpg);
+  position: relative;
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+}
+
+.overlay {
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 2em 1em;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
+.welcome-container h1 {
+  text-align: center;
+  color: #F6FFA6;
+  margin-bottom: 1em;
+  font-size: 3rem;
+}
+
+.welcome-container .intro-text {
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-bottom: 1.5em;
+  line-height: 40px;
+}
+
+.cta-wrapper {
+  margin-top: 4.5em;
+  text-align: center;
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 15px 30px;
+  font-size: 20px;
+  background-color: #FF4081;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+
+}
+
+.cta-button:hover {
+  background-color: #E91E63;
+}
+
+@media (max-width:450px) {
+  .welcome-container h1 {
+    font-size: 2.5rem;
+  }
+}

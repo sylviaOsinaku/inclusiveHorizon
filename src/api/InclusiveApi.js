@@ -84,247 +84,242 @@ export const InclusiveWordsArr = [
   { word: "blackout", suggestions: ["power loss", "power failure"] },
   { word: "grayhat", suggestions: ["semi-authorised"] },
   { word: "grayhat", suggestions: ["semi-authorised"] },
-];
 
-var inclusiveWords = [
   {
     word: "man",
-    alternatives: ["person", "individual", "human"],
+    suggestions: ["person", "individual", "human"],
   },
   {
     word: "woman",
-    alternatives: ["person", "individual", "human"],
+    suggestions: ["person", "individual", "human"],
   },
   {
     word: "mankind",
-    alternatives: ["humanity", "humankind"],
+    suggestions: ["humanity", "humankind"],
   },
-  {
-    word: "chairman",
-    alternatives: ["chairperson", "chair", "chairwoman"],
-  },
+
   {
     word: "fireman",
-    alternatives: ["firefighter"],
+    suggestions: ["firefighter"],
   },
   {
     word: "policeman",
-    alternatives: ["police officer"],
+    suggestions: ["police officer"],
   },
   {
     word: "businessman",
-    alternatives: ["businessperson", "entrepreneur"],
+    suggestions: ["businessperson", "entrepreneur"],
   },
   {
     word: "actress",
-    alternatives: ["actor"],
+    suggestions: ["actor"],
   },
   {
     word: "stewardess",
-    alternatives: ["flight attendant"],
+    suggestions: ["flight attendant"],
   },
   {
     word: "waitress",
-    alternatives: ["server", "waitstaff"],
+    suggestions: ["server", "waitstaff"],
   },
   {
     word: "salesman",
-    alternatives: ["salesperson"],
+    suggestions: ["salesperson"],
   },
   {
     word: "mailman",
-    alternatives: ["mail carrier", "postal worker"],
+    suggestions: ["mail carrier", "postal worker"],
   },
   {
     word: "repairman",
-    alternatives: ["repair technician", "service technician"],
+    suggestions: ["repair technician", "service technician"],
   },
   {
     word: "policewoman",
-    alternatives: ["police officer"],
+    suggestions: ["police officer"],
   },
   {
     word: "freshman",
-    alternatives: ["first-year student"],
+    suggestions: ["first-year student"],
   },
   {
     word: "waiter",
-    alternatives: ["server", "waitstaff"],
+    suggestions: ["server", "waitstaff"],
   },
   {
     word: "saleswoman",
-    alternatives: ["salesperson"],
+    suggestions: ["salesperson"],
   },
   {
     word: "firefighter",
-    alternatives: ["firefighter"],
+    suggestions: ["firefighter"],
   },
   {
     word: "police officer",
-    alternatives: ["police officer"],
+    suggestions: ["police officer"],
   },
   {
     word: "businessperson",
-    alternatives: ["businessperson", "entrepreneur"],
+    suggestions: ["businessperson", "entrepreneur"],
   },
   {
     word: "actor",
-    alternatives: ["actor"],
+    suggestions: ["actor"],
   },
   {
     word: "flight attendant",
-    alternatives: ["flight attendant"],
+    suggestions: ["flight attendant"],
   },
   {
     word: "server",
-    alternatives: ["server", "waitstaff"],
+    suggestions: ["server", "waitstaff"],
   },
   {
     word: "salesperson",
-    alternatives: ["salesperson"],
+    suggestions: ["salesperson"],
   },
   {
     word: "mail carrier",
-    alternatives: ["mail carrier", "postal worker"],
+    suggestions: ["mail carrier", "postal worker"],
   },
   {
     word: "repair technician",
-    alternatives: ["repair technician", "service technician"],
+    suggestions: ["repair technician", "service technician"],
   },
   {
     word: "police officer",
-    alternatives: ["police officer"],
+    suggestions: ["police officer"],
   },
   {
     word: "first-year student",
-    alternatives: ["first-year student"],
+    suggestions: ["first-year student"],
   },
   {
     word: "parent",
-    alternatives: ["parent", "caregiver"],
+    suggestions: ["parent", "caregiver"],
   },
   {
     word: "child",
-    alternatives: ["child", "kid"],
+    suggestions: ["child", "kid"],
   },
   {
     word: "elderly",
-    alternatives: ["older adults", "seniors"],
+    suggestions: ["older adults", "seniors"],
   },
   {
     word: "disabled",
-    alternatives: ["person with disabilities"],
+    suggestions: ["person with disabilities"],
   },
   {
     word: "blind",
-    alternatives: ["visually impaired"],
+    suggestions: ["visually impaired"],
   },
   {
     word: "deaf",
-    alternatives: ["hearing impaired"],
+    suggestions: ["hearing impaired"],
   },
   {
     word: "gay",
-    alternatives: ["gay", "lesbian"],
+    suggestions: ["gay", "lesbian"],
   },
   {
     word: "lesbian",
-    alternatives: ["gay", "lesbian"],
+    suggestions: ["gay", "lesbian"],
   },
   {
     word: "transgender",
-    alternatives: ["transgender", "trans"],
+    suggestions: ["transgender", "trans"],
   },
   {
     word: "non-binary",
-    alternatives: ["non-binary", "genderqueer"],
+    suggestions: ["non-binary", "genderqueer"],
   },
   {
     word: "bisexual",
-    alternatives: ["bisexual"],
+    suggestions: ["bisexual"],
   },
   {
     word: "queer",
-    alternatives: ["queer"],
+    suggestions: ["queer"],
   },
   {
     word: "homosexual",
-    alternatives: ["gay", "lesbian"],
+    suggestions: ["gay", "lesbian"],
   },
   {
     word: "heterosexual",
-    alternatives: ["straight"],
+    suggestions: ["straight"],
   },
   {
     word: "person of color",
-    alternatives: [
+    suggestions: [
       "person of color",
       "individual from marginalized communities",
     ],
   },
   {
     word: "minority",
-    alternatives: ["underrepresented group", "marginalized community"],
+    suggestions: ["underrepresented group", "marginalized community"],
   },
   {
     word: "immigrant",
-    alternatives: ["immigrant", "migrant"],
+    suggestions: ["immigrant", "migrant"],
   },
   {
     word: "refugee",
-    alternatives: ["refugee", "displaced person"],
+    suggestions: ["refugee", "displaced person"],
   },
   {
     word: "indigenous",
-    alternatives: ["indigenous", "native"],
+    suggestions: ["indigenous", "native"],
   },
   {
     word: "homeless",
-    alternatives: ["person experiencing homelessness"],
+    suggestions: ["person experiencing homelessness"],
   },
   {
     word: "low-income",
-    alternatives: ["economically disadvantaged"],
+    suggestions: ["economically disadvantaged"],
   },
   {
     word: "mentally ill",
-    alternatives: ["person with mental health challenges"],
+    suggestions: ["person with mental health challenges"],
   },
   {
     word: "submissive",
-    alternatives: ["assertive", "confident"],
+    suggestions: ["assertive", "confident"],
   },
   {
     word: "bossy",
-    alternatives: ["assertive", "strong-willed"],
+    suggestions: ["assertive", "strong-willed"],
   },
   {
     word: "crazy",
-    alternatives: ["unconventional", "extraordinary"],
+    suggestions: ["unconventional", "extraordinary"],
   },
   {
     word: "fat",
-    alternatives: ["plus-size", "curvy"],
+    suggestions: ["plus-size", "curvy"],
   },
   {
     word: "skinny",
-    alternatives: ["slim", "lean"],
+    suggestions: ["slim", "lean"],
   },
   {
     word: "handicapped",
-    alternatives: ["person with disabilities"],
+    suggestions: ["person with disabilities"],
   },
   {
     word: "insane",
-    alternatives: ["unconventional", "extraordinary"],
+    suggestions: ["unconventional", "extraordinary"],
   },
   {
     word: "mad",
-    alternatives: ["angry", "upset"],
+    suggestions: ["angry", "upset"],
   },
   {
     word: "deranged",
-    alternatives: ["unconventional", "extraordinary"],
+    suggestions: ["unconventional", "extraordinary"],
   },
 ];
 

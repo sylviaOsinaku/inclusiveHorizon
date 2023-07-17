@@ -40,10 +40,15 @@ function InclusiveChecker() {
     setFilteredWords([]);
     setShowResult(false);
     setDefinedWord("");
+    setError(false);
   };
   const prevPage = function () {
     navigate(-1);
   };
+
+  const checkerWordInputClass = error
+    ? `${classes["form-control"]} ${classes["invalid"]}`
+    : classes["form-control"];
 
   return (
     <div className={classes["tool-container"]}>
@@ -62,7 +67,7 @@ function InclusiveChecker() {
       </p>
 
       <div
-        className={`${classes["checker-container"]} ${classes["form-control"]}`}
+        className={`${classes["checker-container"]} ${checkerWordInputClass}`}
       >
         <label htmlFor="inclusiveword">Word</label>
         <input

@@ -1,5 +1,6 @@
 .equity-category-wrapper {
   margin-top: 2em;
+  padding: 1em;
 }
 
 .equity-category-wrapper h2 {
@@ -12,6 +13,8 @@
   display: grid;
   gap: 2em;
   grid-template-columns: 1fr 1fr;
+  overflow: scroll;
+  max-height: 20rem;
 }
 
 .kit {

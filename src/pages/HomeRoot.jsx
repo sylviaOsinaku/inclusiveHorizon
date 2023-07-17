@@ -7,7 +7,7 @@ import Nav from "../components/Navigation/Nav";
 function HomeRoot() {
   return (
     <React.Fragment>
-      <main className={""} style={{ padding: "1em" }}>
+      <main className={""}>
         <Outlet />
       </main>
 

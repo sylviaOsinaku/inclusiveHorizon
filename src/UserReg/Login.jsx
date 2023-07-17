@@ -55,6 +55,7 @@ function Login() {
     setUserPassword("");
     setError({});
   };
+  const isValid = userEmail && userPassword;
 
   const handleSignIn = function (email, password) {
     setIsLoading(true);
@@ -62,6 +63,7 @@ function Login() {
       .then((userCredential) => {
         setIsLoading(false);
         // Signed in
+        console.log("Signed In");
         const user = userCredential.user;
         navigate("/equityHome");
         console.log("loginUser", user);
@@ -127,7 +129,11 @@ function Login() {
             )}
           </div>
 
-          <button type="submit" className={classes["sign-btn"]}>
+          <button
+            type="submit"
+            className={classes["sign-btn"]}
+            disabled={!isValid}
+          >
             {isLoading ? <ClipLoader /> : "Login"}
           </button>
         </form>

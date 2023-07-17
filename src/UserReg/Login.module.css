@@ -139,3 +139,12 @@
   min-width: 15rem;
   flex: 1;
 }
+
+.sign-btn:disabled,
+.sign-btn:disabled:hover,
+.sign-btn:disabled:active {
+  background-color: #ccc;
+  color: #292929;
+  border-color: #ccc;
+  cursor: not-allowed;
+}

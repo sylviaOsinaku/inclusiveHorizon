@@ -1,10 +1,11 @@
 .nav-container {
   background-color: #E893CF;
   color: #fff;
-  border-top: 2px solid lightgray;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
+
+  /* position: fixed;
+  width: 100%; */
+  top: 0px;
+  position: relative;
   padding: .5em 1em;
 }
 

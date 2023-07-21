@@ -1,6 +1,6 @@
 .equity-category-wrapper {
-  margin-top: 2em;
-  padding: 1em;
+
+  padding: 1.2em;
 }
 
 .equity-category-wrapper h2 {
@@ -12,9 +12,10 @@
   margin-top: 1em;
   display: grid;
   gap: 2em;
-  grid-template-columns: 1fr 1fr;
-  overflow: scroll;
-  max-height: 20rem;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  justify-content: center;
+
 }
 
 .kit {
@@ -31,6 +32,8 @@
   color: indigo;
   text-decoration: none;
   background-color: #cb0a91;
+  height: 170px;
+  width: 100%;
 }
 
 .category-wrapper p {
@@ -40,7 +43,14 @@
   font-size: .85rem;
 }
 
-@media(max-width: 400px) {
+@media(max-width: 760px) {
+  .category-container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+
+@media(max-width: 440px) {
   .category-container {
     grid-template-columns: 1fr;
   }

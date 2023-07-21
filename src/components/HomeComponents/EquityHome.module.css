@@ -1,5 +1,5 @@
 .home-container {
-  padding: 1em;
+  padding: 1.2em;
 }
 
 .home-container h1 {
@@ -10,7 +10,7 @@
 
 .home-container p {
   color: #7a0657;
-  line-height: 21.5px;
+  line-height: 25px;
   background-color: #F6FFA6;
   padding: 1em;
   border-radius: 5px;

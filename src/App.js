@@ -11,6 +11,7 @@ import Home from "./pages/Homepage/Home";
 import Pledge from "./components/tools/Pledge";
 import RandomQuotes from "./components/tools/RandomQuotes";
 import Tips from "./components/tools/Tips";
+import SavedPledge from "./components/tools/SavedPledge";
 
 const router = createBrowserRouter([
   {

@@ -4,6 +4,7 @@
   cursor: pointer;
 }
 
+
 .logo {
   font-family: 'Arial', sans-serif;
 
@@ -39,41 +40,102 @@
   padding: 1em;
 }
 
+.checker-container input {
+  width: 100%;
+  border-style: solid;
+  border-radius: 5px;
+}
 
 
+
+/* Styling for text area and label */
 .form-control {
   margin-bottom: 1rem;
   color: #fff;
 }
 
-
-
-.form-control input,
-.form-control label {
-  display: block;
-  margin-bottom: 0.5rem;
-}
-
 .form-control label {
   font-weight: bold;
+  margin-bottom: .5em;
   color: indigo;
+  display: block;
+  /* Updated label color */
 }
 
-.form-control input,
-.form-control select {
+.goal-form-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 2px solid #9376E0;
+  /* Updated border color */
+  border-radius: 20px;
+  padding: 0.5rem;
+  overflow: hidden;
+  background-color: #F3BCC8;
+  /* Updated background color */
+}
+
+.goal-form-wrapper input {
+  flex: 1;
   font: inherit;
-  padding: .9rem;
+  padding: 0.8rem;
+  border: none;
+  background-color: transparent;
+  transition: background-color 0.3s ease;
+}
+
+.goal-form-wrapper button {
+  padding: 1em 1.5em;
+  border: none;
+  border-radius: 50px;
+  background-color: #9376E0;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.goal-form-wrapper button:hover {
+  background-color: #582649;
+}
+
+.form-control textarea {
   border-radius: 4px;
   border: 1px solid #ccc;
-  width: 100%;
 }
 
+.form-control textarea,
+.form-control input {
+  font: inherit;
+
+  padding: 1rem;
+  background-color: #F3BCC8;
+  color: #240370;
+  transition: background-color 0.3s ease;
+
+}
+
+.form-control textarea:focus,
 .form-control input:focus {
   outline: none;
   border-color: #240370;
   background-color: #e0d4fd;
 }
 
+.form-control textarea::placeholder,
+.form-control input::placeholder {
+  color: #3c296e;
+  font-size: .8rem;
+  /* Updated placeholder color */
+}
+
+
+/* Error and invalid input styles */
+.error-text {
+  color: #b40e0e;
+  font-size: 0.8rem;
+  margin-top: 0.5rem;
+}
 
 .invalid input {
   border: 1px solid #b40e0e;
@@ -85,10 +147,7 @@
   background-color: #fbe8d2;
 }
 
-.error-text {
-  color: #b40e0e;
-}
-
+/* Button styling */
 .button-wrapper {
   margin-top: 1em;
   display: flex;
@@ -96,26 +155,25 @@
 }
 
 .button-wrapper button {
-  padding: .8em 2em;
+  padding: 0.8em 2em;
   font-weight: 500;
   background-color: #E893CF;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  transition: background-color .15s ease-in-out, color .15s ease-in-out;
+  transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out;
 }
 
 .button-wrapper button:hover {
   background-color: #582649;
   color: #fff;
-
 }
 
+/* Results container and wrapper */
 .results-container {
   padding: 1.2em 1em;
   background-color: #F3BCC8;
   line-height: 30px;
-
 }
 
 .results-wrapper {
@@ -128,13 +186,279 @@
 .results-container .checker-word {
   background-color: green;
   color: #fff;
-  padding: .2em 1em;
+  padding: 0.2em 1em;
   border-radius: 5px;
 }
 
 .results-container .word {
   color: #fff;
-  padding: .2em 1em;
+  padding: 0.2em 1em;
   border-radius: 5px;
   background-color: #b40e0e;
+}
+
+/* Form actions and text area width */
+.form-actions {
+  padding: 1em;
+  max-height: 25rem;
+  overflow: scroll;
+}
+
+.form-control textarea {
+  width: 100%;
+}
+
+/* Pledge button styling */
+.make-pledge-btn {
+  margin-top: 1em;
+  padding: 1em 2em;
+  background-color: #F6FFA6;
+  color: #240370;
+  margin-left: 1.5em;
+  font-weight: 500;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out;
+}
+
+.make-pledge-btn:hover {
+  background-color: #240370;
+  color: #F6FFA6;
+
+}
+
+/* Modallllll */
+
+/* Add this CSS to your main CSS file or style section */
+
+
+/* Modal.css */
+
+/* Styles for the overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  /* Semi-transparent black overlay */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Styles for the modal content */
+.modal-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  max-width: 400px;
+  /* Adjust the maximum width of the modal content as needed */
+}
+
+.modal-content h2 {
+  text-align: center;
+}
+
+/* Styles for the close button */
+.close-button {
+  margin-top: 10px;
+  cursor: pointer;
+  background-color: #f44336;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+}
+
+.close-button:hover {
+  background-color: #d32f2f;
+}
+
+.close-button:focus {
+  outline: none;
+}
+
+.pledges-list {
+  padding: 1em;
+  max-height: 25rem;
+  overflow: scroll;
+}
+
+.question-container {
+  padding: 1em;
+}
+
+.question-container h2 {
+  font-size: 1.2rem;
+  color: indigo;
+}
+
+.options-wrapper {
+  margin: 1.5em 0em;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.options-wrapper button {
+  padding: 1em 0em;
+  cursor: pointer;
+
+}
+
+
+.disabled-button button:disabled,
+.disabled-button button:disabled:hover,
+.disabled-button button:disabled:active {
+  background-color: #ccc;
+  color: #292929;
+  border-color: #ccc;
+  cursor: not-allowed;
+}
+
+.correct-button {
+
+  background-color: green;
+  color: #fff;
+}
+
+.incorrect-button {
+  color: #fff;
+  background-color: #b40e0e;
+}
+
+
+
+
+/* end-quiz.css */
+
+.end-quiz-container {
+  max-width: 400px;
+  margin: 2em auto;
+  text-align: center;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+
+}
+
+.end-quiz-header {
+  margin-bottom: 20px;
+}
+
+.end-quiz-header h2 {
+  font-size: 1.2rem;
+  color: indigo;
+}
+
+.end-quiz-score {
+  margin-bottom: 20px;
+}
+
+.end-quiz-score p {
+  font-size: 18px;
+  color: #333333;
+  margin-bottom: 1em;
+
+}
+
+.score-text {
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 15px;
+  background-color: #f0f0f0;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.progress {
+  height: 100%;
+  background-color: indianred;
+  border-radius: 8px;
+}
+
+.end-quiz-message {
+  font-size: 18px;
+  color: #555555;
+  margin-bottom: 30px;
+  font-weight: 400;
+}
+
+.restart-button {
+  padding: 12px 24px;
+  font-size: 18px;
+  color: #ffffff;
+  background-color: indigo;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.restart-button:hover {
+  background-color: rgba(76, 0, 130, 0.628);
+}
+
+.explanation-wrapper {
+  background-color: indigo;
+  margin-top: .5em;
+  color: #fff;
+  padding: .5em 1em;
+  border-radius: 5px;
+}
+
+.quotes-container {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  background-color: indigo;
+  padding: 1em;
+  margin: 0em 1em;
+  border-radius: 5px;
+  color: #fff;
+}
+
+.quotes-container blockquote {
+  margin-bottom: 1em;
+  text-align: center;
+  line-height: 30px;
+}
+
+.quotes-container p {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.quotes-display-wrapper {
+  display: flex;
+  color: #fff;
+  justify-content: space-between;
+}
+
+.quotes-container span {
+  color: #f5d4fd;
+}
+
+.quotes-btn-wrapper {
+  text-align: center;
+  margin-top: 2em;
+}
+
+.quotes-btn {
+  text-align: center;
+}
+
+
+
+@media (max-width: 480px) {
+  .tool-header {
+    font-size: 1.2rem;
+  }
 }

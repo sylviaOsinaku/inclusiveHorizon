@@ -1,0 +1,67 @@
+.pledge-item {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.pledge-item h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.pledge-item p {
+  margin: 0;
+  margin-bottom: 15px;
+  font-size: 16px;
+
+}
+
+.pledge-item ol {
+  margin: 1em 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pledge-item ol li {
+  margin-bottom: 5px;
+  font-size: 14px;
+  color: #666;
+}
+
+.impact-statement {
+  background: -webkit-linear-gradient(#9a038d, #505006);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 500;
+}
+
+.progress-bar {
+  background-color: #f2f2f2;
+  border-radius: 8px;
+  height: 15px;
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+
+.progress {
+  background-color: #4caf50;
+  border-radius: 8px;
+  height: 100%;
+}
+
+.pledge-item span {
+  font-weight: bold;
+  color: #666;
+  font-size: 14px;
+}
+
+@media(max-width: 400px) {
+  .pledge-item h3 {
+    font-size: 1rem;
+  }
+}

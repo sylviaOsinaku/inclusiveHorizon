@@ -39,3 +39,9 @@
   font-weight: 600;
   font-size: .85rem;
 }
+
+@media(max-width: 400px) {
+  .category-container {
+    grid-template-columns: 1fr;
+  }
+}

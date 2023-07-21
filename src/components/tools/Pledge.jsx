@@ -1,113 +1,171 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import ToolHeader from "./ToolHeader";
+import classes from "./Tools.module.css";
+import PledgeModal from "./PledgeModal";
+import { v4 as uuidv4 } from "uuid";
+// import uuid from "uuidv4";
+// const unique_id = uuid();
+//   const small_id = unique_id.slice(0,8)
 
 function Pledge() {
-  // Array of self-reflection prompts
-  const selfReflectionPrompts = [
-    "What values are most important to you?",
-    "How do you envision your ideal self?",
-    "What are some areas in your life that require personal growth?",
-  ];
-
-  // Function to display a self-reflection prompt and handle user's response
-  function displayPrompt(promptText) {
-    return new Promise((resolve, reject) => {
-      const userInput = prompt(promptText);
-      if (userInput) {
-        resolve(userInput);
-      } else {
-        reject("No response provided.");
-      }
-    });
-  }
-
-  // Function to iterate through self-reflection prompts and collect responses
-  async function collectSelfReflectionResponses() {
-    const responses = [];
-    for (const prompt of selfReflectionPrompts) {
-      try {
-        const response = await displayPrompt(prompt);
-        responses.push(response);
-      } catch (error) {
-        console.log(error);
-      }
+  const [pledgeLists, setPledgeLists] = useState(() => {
+    const savedPledged = localStorage.getItem("pledgedLists");
+    if (savedPledged) {
+      return JSON.parse(savedPledged);
+    } else {
+      return [];
     }
-    // Save or process the collected responses as needed
-    console.log("Collected responses:", responses);
-  }
+  });
+  const [pledge, setPledge] = useState("");
+  const [goal, setGoal] = useState("");
+  const [myGoals, setMyGoals] = useState([]);
+  const [errors, setErrors] = useState({});
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [showSavedPledge, setShowSavedPledge] = useState(false);
 
-  // Object representing a goal
-  class Goal {
-    constructor(description, deadline, priority) {
-      this.description = description;
-      this.deadline = deadline;
-      this.priority = priority;
+  const showSavedPledgeHandler = function () {
+    setShowSavedPledge(true);
+    setIsSubmitted(true);
+  };
+
+  useEffect(() => {
+    localStorage.setItem("pledgedLists", JSON.stringify(pledgeLists));
+  }, [pledgeLists]);
+
+  const pledgeHandler = function (e) {
+    if (errors.pledge) {
+      setErrors((prevErrors) => ({ ...prevErrors, pledge: "" }));
     }
-  }
+    setPledge(e.target.value);
+  };
 
-  // Function to set a new goal with deadline and priority
-  function setGoal(description, deadline, priority) {
-    const newGoal = new Goal(description, deadline, priority);
-    // Save the goal to a database or update the user's profile with the new goal
-    console.log("New goal set:", newGoal);
-  }
-
-  // Example usage
-  const goalDescription = "Complete a course on social equality";
-  const goalDeadline = new Date("2023-12-31");
-  const goalPriority = "High";
-
-  // Example usage
-
-  // Object representing impact in a specific category
-  class Impact {
-    constructor(category, amount) {
-      this.category = category;
-      this.amount = amount;
+  const goalHandler = function (e) {
+    if (errors.goal) {
+      setErrors((prevErrors) => ({ ...prevErrors, goal: "" }));
     }
-  }
+    setGoal(e.target.value);
+  };
 
-  // Function to track and display the user's impact in different categories
-  function trackImpact(category, amount) {
-    // Update the user's impact in the specified category, e.g., increment a counter or update a progress bar
-    const newImpact = new Impact(category, amount);
-    console.log("Impact tracked:", newImpact);
-  }
+  const addGoalHandler = function (newgoal) {
+    if (!newgoal) return;
 
-  // Function to visualize the user's impact
-  function visualizeImpact(impactData) {
-    // Generate visual representation of impact, e.g., charts, graphs, or progress bars
-    console.log("Visualizing impact:", impactData);
-  }
+    setGoal("");
+    setMyGoals((prevGoals) => [...prevGoals, newgoal]);
+    console.log(myGoals);
+  };
 
-  // Example usage
-  const impactCategory1 = "Social Equality";
-  const impactAmount1 = 100;
-  trackImpact(impactCategory1, impactAmount1);
+  const validateForm = function () {
+    console.log("validate from func");
+    let isValid = true;
+    const newErrors = {};
+    if (!pledge.trim()) {
+      newErrors.pledge = "Pledge is Required!";
+      isValid = false;
+    }
+    if (myGoals.length <= 0) {
+      isValid = false;
+      newErrors.goal = "Enter at least one goal to achieve";
+    }
 
-  const impactCategory2 = "Environmental Sustainability";
-  const impactAmount2 = 50;
-  trackImpact(impactCategory2, impactAmount2);
+    setErrors(newErrors);
+    return isValid;
+  };
 
-  const impactData = [
-    new Impact(impactCategory1, impactAmount1),
-    new Impact(impactCategory2, impactAmount2),
-  ];
+  const ResetForm = function () {
+    setPledge("");
+    setGoal("");
+    setMyGoals([]);
+  };
+
+  const submitPledgeHandler = function (e) {
+    e.preventDefault();
+    if (validateForm()) {
+      console.log("submit button");
+      const myPledge = {
+        oath: pledge,
+        goals: myGoals,
+        focusArea: "Social Equality",
+        id: uuidv4().slice(0, 8),
+        progess: 20,
+      };
+
+      setPledgeLists((prevPledge) => [...prevPledge, myPledge]);
+
+      console.log(myPledge);
+
+      ResetForm();
+      setIsSubmitted(true);
+      return;
+    }
+
+    console.log("form not submitted");
+  };
 
   return (
-    <div>
-      <p>
-        📝 Personal Quality Pledge: Take a step towards personal growth and
-        commitment to equality. Craft your own pledge, set achievable goals, and
-        track your progress as you strive to become an agent of change.
-      </p>
-      <button onClick={collectSelfReflectionResponses}>set</button>
-      <button
-        onClick={() => setGoal(goalDescription, goalDeadline, goalPriority)}
-      >
-        goal
-      </button>
-      <button onClick={() => visualizeImpact(impactData)}>Visu</button>
-    </div>
+    <React.Fragment>
+      {isSubmitted ? (
+        <PledgeModal
+          showpledge={isSubmitted}
+          onShowPledge={setIsSubmitted}
+          pledgeList={pledgeLists}
+          setShowSavedPledge={setShowSavedPledge}
+          showSavedPledge={showSavedPledge}
+          onShowSavedPledgeHandler={showSavedPledgeHandler}
+        />
+      ) : (
+        <div className={classes["tool-container"]}>
+          <ToolHeader title={"Personal Pledge"} />
+          <p className={classes["text-intro"]}>
+            📝 Personal Pledge for Progress: Take the first step towards
+            personal growth and transformation. Craft your own quality pledge,
+            set goals, and make a real impact on the world around you.
+          </p>
+
+          <div className={classes["form-actions"]}>
+            <div className={classes["form-control"]}>
+              <label htmlFor="">Craft your pledge for social equality:</label>
+
+              <textarea
+                name="pledge"
+                id="pledge"
+                rows="3"
+                onChange={pledgeHandler}
+                value={pledge}
+                placeholder="What are some areas in your life that require personal growth?"
+              ></textarea>
+              {errors.pledge && (
+                <p className={classes["error-text"]}>{errors.pledge}</p>
+              )}
+            </div>
+
+            <div className={`${classes["form-control"]}  `}>
+              <label htmlFor="">Set your goals for promoting equality:</label>
+              <div className={classes["goal-form-wrapper"]}>
+                <input
+                  type="text"
+                  name="goal"
+                  placeholder="Promote gender-inclusive education"
+                  id="goal"
+                  onChange={goalHandler}
+                  value={goal}
+                />
+                <button type="button" onClick={() => addGoalHandler(goal)}>
+                  Add Goal
+                </button>
+              </div>
+
+              {errors.goal && (
+                <p className={classes["error-text"]}>{errors.goal}</p>
+              )}
+            </div>
+            <div className={classes["button-wrapper"]}>
+              <button onClick={submitPledgeHandler}>Make Pledge</button>
+              <button onClick={showSavedPledgeHandler}>Show Pledges</button>
+            </div>
+          </div>
+        </div>
+      )}
+    </React.Fragment>
   );
 }
 

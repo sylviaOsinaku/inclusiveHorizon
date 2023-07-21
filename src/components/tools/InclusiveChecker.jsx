@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { InclusiveWordsArr } from "../../api/InclusiveApi";
 import IconChevronBackCircleOutline from "../../Ui/PrevIcon";
 import classes from "./Tools.module.css";
+import ToolHeader from "./ToolHeader";
 function InclusiveChecker() {
   const [inclusiveWord, setInclusiveWord] = useState("");
   const [definedWord, setDefinedWord] = useState("");
@@ -52,13 +53,7 @@ function InclusiveChecker() {
 
   return (
     <div className={classes["tool-container"]}>
-      <div className={classes["tool-header"]}>
-        <span onClick={prevPage} className={classes["prevPage"]}>
-          <IconChevronBackCircleOutline />
-        </span>
-
-        <p className={classes["logo"]}>InclusiveChecker</p>
-      </div>
+      <ToolHeader title={"InclusiveChecker"} />
       <p className={classes["text-intro"]}>
         🔎 Inclusive Language Checker: Language plays a powerful role in shaping
         perceptions. Our innovative checker will ensure that your words reflect

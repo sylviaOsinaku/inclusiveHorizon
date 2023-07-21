@@ -58,10 +58,10 @@ function Quiz() {
                   isSubmiited
                     ? index === SelectedAnswer
                       ? SelectedAnswer === currentQuestion.correct_answer
-                        ? `${classes["make-pledge-btn"]} ${classes["correct-button"]}`
-                        : `${classes["make-pledge-btn"]} ${classes["incorrect-button"]}`
-                      : `${classes["make-pledge-btn"]} ${classes["disabled-button"]}`
-                    : classes["make-pledge-btn"]
+                        ? `${classes["quiz-option-btn"]} ${classes["correct-button"]}`
+                        : `${classes["quiz-option-btn"]} ${classes["incorrect-button"]}`
+                      : `${classes["quiz-option-btn"]} ${classes["disabled-button"]}`
+                    : classes["quiz-option-btn"]
                 }
                 disabled={isSubmiited}
               >

@@ -209,7 +209,8 @@
 }
 
 /* Pledge button styling */
-.make-pledge-btn {
+.make-pledge-btn,
+.quiz-option-btn {
   margin-top: 1em;
   padding: 1em 2em;
   background-color: #F6FFA6;

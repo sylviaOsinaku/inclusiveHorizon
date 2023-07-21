@@ -7,7 +7,6 @@ import Nav from "../components/Navigation/Nav";
 function HomeRoot() {
   return (
     <React.Fragment>
-      <Nav />
       <main className={""}>
         <Outlet />
       </main>

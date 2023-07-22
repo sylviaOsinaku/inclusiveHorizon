@@ -22,6 +22,7 @@ function Pledge() {
   const [errors, setErrors] = useState({});
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [showSavedPledge, setShowSavedPledge] = useState(false);
+  const [myProgress, setMyProgress] = useState(0);
 
   const showSavedPledgeHandler = function () {
     setShowSavedPledge(true);
@@ -54,6 +55,10 @@ function Pledge() {
     console.log(myGoals);
   };
 
+  const addProgressHandler = (e) => {
+    setMyProgress(e.target.value);
+  };
+
   const validateForm = function () {
     console.log("validate from func");
     let isValid = true;
@@ -66,6 +71,10 @@ function Pledge() {
       isValid = false;
       newErrors.goal = "Enter at least one goal to achieve";
     }
+    if (myProgress < 0) {
+      isValid = false;
+      newErrors.progress = "Progress must be greater than 0";
+    }
 
     setErrors(newErrors);
     return isValid;
@@ -75,6 +84,7 @@ function Pledge() {
     setPledge("");
     setGoal("");
     setMyGoals([]);
+    setMyProgress(0);
   };
 
   const submitPledgeHandler = function (e) {
@@ -86,7 +96,7 @@ function Pledge() {
         goals: myGoals,
         focusArea: "Social Equality",
         id: uuidv4().slice(0, 8),
-        progess: 20,
+        progress: myProgress,
       };
 
       setPledgeLists((prevPledge) => [...prevPledge, myPledge]);
@@ -152,6 +162,27 @@ function Pledge() {
                 <button type="button" onClick={() => addGoalHandler(goal)}>
                   Add Goal
                 </button>
+              </div>
+
+              {errors.goal && (
+                <p className={classes["error-text"]}>{errors.goal}</p>
+              )}
+            </div>
+
+            <div className={`${classes["form-control"]}  `}>
+              <label htmlFor="">Set your goals for promoting equality:</label>
+              <div className={classes["goal-form-wrapper"]}>
+                <input
+                  type="number"
+                  name="progress"
+                  placeholder="Add progress from 1-10"
+                  id="progress"
+                  onChange={addProgressHandler}
+                  value={myProgress}
+                />
+                {errors.progress && (
+                  <p className={classes["error-text"]}>{errors.progress}</p>
+                )}
               </div>
 
               {errors.goal && (

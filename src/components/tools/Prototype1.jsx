@@ -9,7 +9,8 @@ const PledgeItem = ({ pledge }) => {
     "My impact statement on promoting social equality is by:";
 
   const { oath, goals, progress, focusArea } = pledge;
-
+  const progressInPercentage = (progress * 100) / 10;
+  console.log(progress);
   return (
     <div className="pledge-item">
       <h3>{oath}</h3>
@@ -22,10 +23,10 @@ const PledgeItem = ({ pledge }) => {
       <div className="progress-bar">
         <div
           className="progress"
-          style={{ width: `${progress ? progress : 20}%` }}
+          style={{ width: `${progress ? progressInPercentage : 20}%` }}
         ></div>
       </div>
-      <p>Progress: {progress}%</p>
+      <p>Progress: {progressInPercentage || 50}%</p>
       <span>Focus Area: {focusArea}</span>
     </div>
   );

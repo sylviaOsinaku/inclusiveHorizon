@@ -458,6 +458,30 @@
   text-align: center;
 }
 
+.tips-container {
+  padding: 1em;
+
+}
+
+.tips-wrapper {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  padding: 1em;
+  border-radius: 5px;
+}
+
+.today-text {
+  margin-bottom: 1em;
+  font-weight: 900;
+  font-size: 1.5rem;
+  color: indigo;
+}
+
+.tipOrFact {
+  margin-bottom: 1em;
+  font-size: .9rem;
+  color: #3c296e;
+}
+
 
 
 @media (max-width: 480px) {
